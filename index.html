@@ -1,0 +1,1854 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Specialty Coffee — Cours Avancé & Stratégie Concurrentielle</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0D0D0D;
+  --charcoal: #1A1A1A;
+  --slate: #2C2C2C;
+  --mist: #F5F2EE;
+  --paper: #FDFBF8;
+  --sand: #E8E0D4;
+  --warm: #D4C4B0;
+  --amber: #C8842A;
+  --copper: #A0622A;
+  --rust: #7A3B1E;
+  --green: #3D5A40;
+  --sage: #6B8F71;
+  --teal: #2A5C5A;
+  --gold: #C8A84B;
+  --red-fruit: #8B2635;
+  --floral: #6B4E71;
+  --text: #1A1A1A;
+  --muted: #5A5A5A;
+  --light-text: #8A8A8A;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--paper);
+  color: var(--text);
+  line-height: 1.75;
+  font-size: 15px;
+}
+/* ─── HERO ─── */
+.hero {
+  background: var(--ink);
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+.hero-texture {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 40%, rgba(200,132,42,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 85% 60%, rgba(61,90,64,0.1) 0%, transparent 55%),
+    radial-gradient(circle at 50% 100%, rgba(200,168,75,0.06) 0%, transparent 40%);
+}
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 6rem 5rem 3rem;
+  position: relative;
+  max-width: 1100px;
+}
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 2.5rem;
+}
+.hero-eyebrow span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+.hero-eyebrow::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: var(--amber);
+  opacity: 0.5;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 300;
+  line-height: 1.0;
+  color: var(--mist);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+.hero h1 strong {
+  font-weight: 700;
+  font-style: italic;
+  color: var(--amber);
+  display: block;
+}
+.hero-desc {
+  font-size: 1rem;
+  color: rgba(245,242,238,0.6);
+  max-width: 560px;
+  margin-bottom: 3rem;
+  font-weight: 300;
+  line-height: 1.8;
+}
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.hero-pill {
+  border: 1px solid rgba(200,132,42,0.4);
+  color: rgba(200,132,42,0.9);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.9rem;
+  border-radius: 2rem;
+}
+.hero-bottom {
+  padding: 2rem 5rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  position: relative;
+}
+.hero-stat { text-align: left; }
+.hero-stat-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--amber);
+  display: block;
+  line-height: 1;
+}
+.hero-stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  color: rgba(245,242,238,0.35);
+  text-transform: uppercase;
+}
+/* ─── STICKY NAV ─── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(13,13,13,0.97);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(200,132,42,0.2);
+  display: flex;
+  overflow-x: auto;
+  padding: 0 2rem;
+  gap: 0;
+}
+.nav a {
+  color: rgba(245,242,238,0.45);
+  text-decoration: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 1rem 1.1rem;
+  white-space: nowrap;
+  transition: color 0.2s;
+  border-bottom: 2px solid transparent;
+}
+.nav a:hover { color: var(--amber); border-bottom-color: var(--amber); }
+/* ─── LAYOUT ─── */
+.chapter {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 6rem 3rem;
+}
+.chapter-alt { background: var(--mist); }
+.chapter-dark { background: var(--charcoal); }
+/* ─── CHAPTER HEADER ─── */
+.ch-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin-bottom: 4rem;
+}
+.ch-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 7rem;
+  font-weight: 700;
+  line-height: 0.85;
+  color: var(--sand);
+  letter-spacing: -0.04em;
+  user-select: none;
+}
+.ch-dark .ch-num { color: rgba(200,132,42,0.2); }
+.ch-meta { padding-top: 0.5rem; }
+.ch-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+.ch-dark .ch-kicker { color: var(--gold); }
+.ch-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.ch-dark .ch-title { color: var(--mist); }
+.ch-title em { font-style: italic; color: var(--amber); }
+.ch-subtitle {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 0.6rem;
+  font-weight: 300;
+}
+.ch-dark .ch-subtitle { color: rgba(245,242,238,0.5); }
+/* ─── BODY TEXT ─── */
+.body { font-size: 0.93rem; color: var(--muted); max-width: 680px; margin-bottom: 1.2rem; font-weight: 400; }
+.body strong { color: var(--text); font-weight: 500; }
+.body-dark { color: rgba(245,242,238,0.6); }
+h3.sh {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 3rem 0 1rem;
+  letter-spacing: -0.01em;
+}
+h3.sh-dark { color: var(--mist); }
+/* ─── COMPETITIVE BANNER ─── */
+.vs-banner {
+  background: var(--ink);
+  border-radius: 1.2rem;
+  padding: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 2rem;
+  align-items: center;
+  margin: 2.5rem 0;
+}
+.vs-side h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.vs-them h4 { color: rgba(245,242,238,0.4); }
+.vs-you h4 { color: var(--amber); }
+.vs-side ul { list-style: none; }
+.vs-side ul li {
+  font-size: 0.83rem;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.vs-them ul li { color: rgba(245,242,238,0.35); }
+.vs-them ul li::before { content: '○'; font-size: 0.6rem; color: rgba(245,242,238,0.2); flex-shrink: 0; }
+.vs-you ul li { color: rgba(245,242,238,0.85); }
+.vs-you ul li::before { content: '◆'; font-size: 0.5rem; color: var(--amber); flex-shrink: 0; }
+.vs-divider {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-style: italic;
+  color: var(--amber);
+  opacity: 0.7;
+}
+/* ─── CARDS ─── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 2rem 0; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin: 2rem 0; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 2rem 0; }
+@media (max-width: 700px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .hero-content { padding: 4rem 2rem 2rem; }
+  .hero-bottom { padding: 1.5rem 2rem; }
+  .ch-num { font-size: 4rem; }
+  .vs-banner { grid-template-columns: 1fr; }
+  .vs-divider { display: none; }
+  .chapter { padding: 4rem 1.5rem; }
+}
+.card {
+  background: white;
+  border: 1px solid var(--sand);
+  border-radius: 1rem;
+  padding: 1.8rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.07); }
+.card-dark {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.card-dark:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+.card-accent { border-top: 3px solid var(--amber); }
+.card-green { border-top: 3px solid var(--green); }
+.card-floral { border-top: 3px solid var(--floral); }
+.card-red { border-top: 3px solid var(--red-fruit); }
+.card-teal { border-top: 3px solid var(--teal); }
+.card-icon { font-size: 1.8rem; margin-bottom: 1rem; display: block; }
+.card h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.card-dark h4 { color: var(--mist); }
+.card p, .card ul { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+.card-dark p, .card-dark ul { color: rgba(245,242,238,0.5); }
+.card ul { padding-left: 1.1rem; }
+.card ul li { margin-bottom: 0.3rem; }
+/* ─── ORIGIN CARD ─── */
+.origin-card {
+  border: 1px solid var(--sand);
+  border-radius: 1.2rem;
+  overflow: hidden;
+  background: white;
+}
+.origin-header {
+  padding: 1.5rem 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.origin-flag { font-size: 2rem; }
+.origin-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.origin-region {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--light-text);
+  text-transform: uppercase;
+  margin-top: 0.2rem;
+}
+.origin-score {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--amber);
+  line-height: 1;
+}
+.origin-score span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--light-text);
+  letter-spacing: 0.1em;
+  display: block;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: right;
+}
+.origin-flavor-bar {
+  padding: 0.8rem 1.8rem;
+  background: var(--mist);
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.flavor-tag {
+  font-size: 0.72rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+.ft-fruit { background: rgba(139,38,53,0.1); color: var(--red-fruit); }
+.ft-floral { background: rgba(107,78,113,0.1); color: var(--floral); }
+.ft-choc { background: rgba(120,63,30,0.1); color: var(--copper); }
+.ft-caramel { background: rgba(200,168,75,0.12); color: var(--copper); }
+.ft-spice { background: rgba(61,90,64,0.1); color: var(--green); }
+.ft-citrus { background: rgba(42,92,90,0.1); color: var(--teal); }
+.ft-nutty { background: rgba(160,98,42,0.1); color: var(--copper); }
+.origin-body { padding: 1.4rem 1.8rem 1.8rem; }
+.origin-body p { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.8rem; }
+.origin-specs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+.origin-spec {
+  text-align: center;
+  background: var(--mist);
+  border-radius: 0.5rem;
+  padding: 0.6rem;
+}
+.origin-spec-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--amber);
+  display: block;
+}
+.origin-spec-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  color: var(--light-text);
+  text-transform: uppercase;
+}
+/* ─── CALLOUTS ─── */
+.callout {
+  border-radius: 1rem;
+  padding: 1.8rem 2rem;
+  margin: 2rem 0;
+  border-left: 4px solid;
+}
+.callout-strategy { background: rgba(61,90,64,0.08); border-color: var(--green); }
+.callout-warn { background: rgba(200,132,42,0.08); border-color: var(--amber); }
+.callout-key { background: rgba(42,92,90,0.07); border-color: var(--teal); }
+.callout-red { background: rgba(139,38,53,0.07); border-color: var(--red-fruit); }
+.callout-dark-strategy { background: rgba(61,90,64,0.15); border-color: var(--sage); }
+.callout-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.63rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.callout-strategy .callout-label { color: var(--green); }
+.callout-warn .callout-label { color: var(--amber); }
+.callout-key .callout-label { color: var(--teal); }
+.callout-red .callout-label { color: var(--red-fruit); }
+.callout-dark-strategy .callout-label { color: var(--sage); }
+.callout h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--ink);
+}
+.callout p, .callout ul { font-size: 0.88rem; color: var(--muted); }
+.callout ul { padding-left: 1.2rem; }
+.callout ul li { margin-bottom: 0.4rem; }
+/* ─── TABLE ─── */
+.tbl { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.85rem; border-radius: 1rem; overflow: hidden; }
+.tbl th {
+  background: var(--ink);
+  color: var(--mist);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.63rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.2rem;
+  text-align: left;
+  font-weight: 400;
+}
+.tbl td { padding: 0.85rem 1.2rem; border-bottom: 1px solid var(--sand); background: white; vertical-align: top; color: var(--muted); }
+.tbl td:first-child { font-weight: 500; color: var(--text); font-size: 0.82rem; }
+.tbl tr:last-child td { border-bottom: none; }
+.tbl tr:nth-child(even) td { background: var(--mist); }
+/* ─── SCORE BAR ─── */
+.score-bar-wrap { margin: 2rem 0; }
+.score-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem; }
+.score-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; width: 110px; flex-shrink: 0; color: var(--muted); }
+.score-track { flex: 1; height: 6px; background: var(--sand); border-radius: 3px; overflow: hidden; }
+.score-fill { height: 100%; border-radius: 3px; transition: width 0.6s ease; }
+.score-val { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--amber); width: 30px; text-align: right; flex-shrink: 0; }
+/* ─── FLAVOR WHEEL mini ─── */
+.wheel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  margin: 1.5rem 0;
+}
+.wheel-cat {
+  background: var(--mist);
+  border-radius: 0.8rem;
+  padding: 1rem;
+}
+.wheel-cat-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  color: var(--ink);
+}
+.wheel-sub {
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+/* ─── PROCESS STEPS ─── */
+.process {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  margin: 2rem 0;
+  padding-bottom: 0.5rem;
+}
+.process-step {
+  flex: 1;
+  min-width: 140px;
+  position: relative;
+  padding: 1.5rem 1rem 1.5rem 1rem;
+  background: white;
+  border: 1px solid var(--sand);
+  border-right: none;
+}
+.process-step:last-child { border-right: 1px solid var(--sand); border-radius: 0 0.8rem 0.8rem 0; }
+.process-step:first-child { border-radius: 0.8rem 0 0 0.8rem; }
+.process-step-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--amber);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.process-step h5 { font-size: 0.85rem; font-weight: 500; color: var(--ink); margin-bottom: 0.3rem; }
+.process-step p { font-size: 0.78rem; color: var(--muted); }
+/* ─── PRICING TABLE ─── */
+.pricing-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--sand);
+  font-size: 0.87rem;
+}
+.pricing-row:last-child { border-bottom: none; }
+.pricing-label { color: var(--text); font-weight: 500; }
+.pricing-cost { color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; }
+.pricing-sell { color: var(--amber); font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 500; }
+.pricing-margin {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  background: rgba(61,90,64,0.1);
+  color: var(--green);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.3rem;
+}
+/* ─── QUOTE BREAK ─── */
+.quote-break {
+  background: var(--ink);
+  padding: 5rem 3rem;
+  text-align: center;
+}
+.quote-break blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--mist);
+  max-width: 750px;
+  margin: 0 auto 1rem;
+  line-height: 1.5;
+}
+.quote-break cite {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--amber);
+  text-transform: uppercase;
+}
+/* ─── TIMELINE ─── */
+.timeline { position: relative; padding-left: 2.5rem; margin: 2rem 0; }
+.timeline::before { content: ''; position: absolute; left: 0.6rem; top: 0; bottom: 0; width: 1px; background: var(--sand); }
+.tl-item { position: relative; margin-bottom: 2rem; }
+.tl-item::before { content: ''; position: absolute; left: -1.9rem; top: 0.35rem; width: 0.65rem; height: 0.65rem; border-radius: 50%; background: var(--amber); border: 2px solid var(--paper); }
+.tl-item h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.3rem; color: var(--ink); }
+.tl-item p { font-size: 0.86rem; color: var(--muted); }
+/* ─── CHECKLIST ─── */
+.cl { list-style: none; padding: 0; margin: 1.5rem 0; }
+.cl li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--sand);
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+.cl li::before { content: '□'; color: var(--amber); flex-shrink: 0; font-size: 1rem; line-height: 1.3; }
+.cl li strong { color: var(--text); }
+/* ─── NUMBER BIG ─── */
+.big-numbers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1px;
+  background: var(--sand);
+  border: 1px solid var(--sand);
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 2rem 0;
+}
+.bn-item { background: white; padding: 2rem 1.5rem; text-align: center; }
+.bn-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--amber);
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+.bn-label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light-text); }
+/* ─── CONVERSATION BOX ─── */
+.convo { background: var(--mist); border-radius: 1rem; padding: 1.5rem; margin: 1.5rem 0; }
+.convo-turn { display: flex; gap: 1rem; margin-bottom: 1rem; }
+.convo-turn:last-child { margin-bottom: 0; }
+.convo-speaker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--light-text);
+  flex-shrink: 0;
+  width: 60px;
+  padding-top: 0.1rem;
+}
+.convo-turn.barista .convo-speaker { color: var(--amber); }
+.convo-bubble { font-size: 0.88rem; color: var(--text); background: white; padding: 0.8rem 1.1rem; border-radius: 0.8rem; line-height: 1.6; }
+.convo-turn.barista .convo-bubble { background: var(--ink); color: var(--mist); }
+/* ─── SENSORY ─── */
+.sensory-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+.sense-box {
+  background: white;
+  border: 1px solid var(--sand);
+  border-radius: 0.8rem;
+  padding: 1rem 0.8rem;
+  text-align: center;
+}
+.sense-icon { font-size: 1.5rem; display: block; margin-bottom: 0.4rem; }
+.sense-name { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); display: block; margin-bottom: 0.5rem; }
+.sense-desc { font-size: 0.75rem; color: var(--muted); line-height: 1.5; }
+/* ─── SUPPLIER CARD ─── */
+.supplier {
+  border: 1px solid var(--sand);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background: white;
+}
+.supplier-type {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 0.4rem;
+  display: block;
+}
+.supplier h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.6rem; }
+.supplier p { font-size: 0.84rem; color: var(--muted); }
+/* ─── FOOTER ─── */
+.footer {
+  background: var(--ink);
+  padding: 5rem 3rem;
+  text-align: center;
+}
+.footer-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-style: italic;
+  color: var(--amber);
+  margin-bottom: 1rem;
+}
+.footer p { color: rgba(245,242,238,0.35); font-size: 0.82rem; margin-bottom: 1.5rem; }
+.footer-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+.footer-tag {
+  background: rgba(200,132,42,0.12);
+  color: rgba(200,132,42,0.7);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 2rem;
+  text-transform: uppercase;
+}
+/* ─── MISC ─── */
+.divider { border: none; border-top: 1px solid var(--sand); margin: 2rem 0; }
+.tag { display: inline-block; background: var(--sand); color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; padding: 0.2rem 0.6rem; border-radius: 2rem; letter-spacing: 0.08em; margin: 0.15rem; }
+.tag-green { background: rgba(61,90,64,0.1); color: var(--green); }
+.tag-amber { background: rgba(200,132,42,0.12); color: var(--copper); }
+.tag-red { background: rgba(139,38,53,0.1); color: var(--red-fruit); }
+.tag-floral { background: rgba(107,78,113,0.1); color: var(--floral); }
+.tag-teal { background: rgba(42,92,90,0.1); color: var(--teal); }
+</style>
+</head>
+<body>
+<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+<header class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span>Cours Avancé · Specialty Coffee</span></div>
+    <h1>
+      Le Café de
+      <strong>Spécialité</strong>
+    </h1>
+    <p class="hero-desc">Votre concurrent à 500m sert du Brésilien commercial. Vous, vous allez servir une expérience. Ce cours vous donne les outils pour comprendre, sourcer, extraire et vendre le specialty coffee — et construire une identité que personne dans votre quartier ne peut copier.</p>
+    <div class="hero-pills">
+      <span class="hero-pill">Specialty ≥ 80 pts SCA</span>
+      <span class="hero-pill">Single Origin</span>
+      <span class="hero-pill">Direct Trade</span>
+      <span class="hero-pill">Terroir & Traçabilité</span>
+      <span class="hero-pill">Stratégie Concurrentielle</span>
+      <span class="hero-pill">Cupping Protocol</span>
+      <span class="hero-pill">Brew Methods</span>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <div class="hero-stat"><span class="hero-stat-value">+80</span><span class="hero-stat-label">Score SCA minimum specialty</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">~5%</span><span class="hero-stat-label">Du café mondial est specialty</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">2×</span><span class="hero-stat-label">Prix moyen vs café commercial</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">9</span><span class="hero-stat-label">Critères de notation SCA</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">8</span><span class="hero-stat-label">Modules approfondis</span></div>
+  </div>
+</header>
+<!-- NAV -->
+<nav class="nav">
+  <a href="#ch1">01 · Qu'est-ce que le Specialty</a>
+  <a href="#ch2">02 · Positionnement Concurrentiel</a>
+  <a href="#ch3">03 · Origines & Terroir</a>
+  <a href="#ch4">04 · Traitements Avancés</a>
+  <a href="#ch5">05 · Sourcing & Fournisseurs</a>
+  <a href="#ch6">06 · Cupping & Sens</a>
+  <a href="#ch7">07 · Méthodes de Brassage</a>
+  <a href="#ch8">08 · Menu, Prix & Vente</a>
+</nav>
+<!-- ═══════════════════════════ CHAPITRE 1 ═══════════════════════════ -->
+<section id="ch1">
+  <div class="chapter">
+    <div class="ch-header">
+      <div class="ch-num">01</div>
+      <div class="ch-meta">
+        <span class="ch-kicker">Les Fondements</span>
+        <h2 class="ch-title">Qu'est-ce que le<br><em>Specialty Coffee</em> vraiment ?</h2>
+        <p class="ch-subtitle">Pas un marketing. Une norme internationale mesurable.</p>
+      </div>
+    </div>
+    <p class="body">Le terme "specialty coffee" est souvent utilisé à tort comme un argument marketing. En réalité, c'est une <strong>certification mesurable</strong> définie par la Specialty Coffee Association (SCA), l'organisation mondiale de référence fondée en 1982. Comprendre cette norme, c'est savoir ce que vous achetez et pourquoi c'est différent.</p>
+    <h3 class="sh">La notation SCA : comment fonctionne la grille</h3>
+    <p class="body">Un café est noté par un <strong>Q-Grader</strong> (dégustateur certifié SCA) selon 9 critères, chacun noté sur 10. Le score final est sur 100. Un café doit obtenir <strong>minimum 80 points</strong> pour être qualifié de "specialty coffee".</p>
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Critère SCA</th>
+          <th>Ce que ça évalue</th>
+          <th>Exemple concret</th>
+          <th>Score max</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Fragrance / Arôme</td>
+          <td>Odeur du café moulu à sec, puis une fois mouillé</td>
+          <td>Floral, fruit, épice, caramel...</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Flavor (Saveur)</td>
+          <td>Impression gustative globale</td>
+          <td>Complexité, cohérence des notes</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Aftertaste</td>
+          <td>Longueur et qualité de la fin de bouche</td>
+          <td>Persistance agréable ou disparaît vite</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Acidity</td>
+          <td>Qualité de l'acidité (pas quantité)</td>
+          <td>Vive et lumineuse vs plate ou agressive</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Body</td>
+          <td>Texture et poids en bouche</td>
+          <td>Soyeux, huileux, léger, crémeux</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Balance</td>
+          <td>Harmonie entre tous les attributs</td>
+          <td>Aucun élément ne domine excessivement</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Uniformity</td>
+          <td>Régularité entre les 5 tasses du test</td>
+          <td>Lot homogène, pas de variation</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Clean Cup</td>
+          <td>Absence de défauts ou goûts parasites</td>
+          <td>Pas de fermenté, moisi, caoutchouc...</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Sweetness</td>
+          <td>Douceur naturelle du café</td>
+          <td>Sucré sans sucre ajouté</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Overall</td>
+          <td>Impression globale et unicité</td>
+          <td>Ce café mérite-t-il d'être remarqué ?</td>
+          <td>10</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="big-numbers">
+      <div class="bn-item"><span class="bn-val">&lt;80</span><span class="bn-label">Café Commercial</span></div>
+      <div class="bn-item"><span class="bn-val">80–84</span><span class="bn-label">Very Good Specialty</span></div>
+      <div class="bn-item"><span class="bn-val">85–89</span><span class="bn-label">Excellent Specialty</span></div>
+      <div class="bn-item"><span class="bn-val">90–94</span><span class="bn-label">Outstanding</span></div>
+      <div class="bn-item"><span class="bn-val">95+</span><span class="bn-label">Exceptionnel (rare)</span></div>
+    </div>
+    <div class="callout callout-key">
+      <span class="callout-label">💡 Ce que ça change pour vous</span>
+      <h4>Demandez toujours le score SCA à votre torréfacteur</h4>
+      <p>Un torréfacteur sérieux peut vous indiquer le score SCA du café vert qu'il a acheté. Si il ne peut pas vous le donner, il n'achète pas de specialty coffee. Minimum visé pour votre menu : <strong>83+ points</strong> pour vos espressos et <strong>85+ points</strong> pour vos single origins. Ces chiffres justifient votre positionnement premium.</p>
+    </div>
+    <h3 class="sh">Les défauts : ce que le specialty coffee n'a pas</h3>
+    <p class="body">Le café commercial tolère jusqu'à 23 défauts primaires et secondaires par lot de 350g. Le specialty coffee tolère <strong>zéro défaut primaire</strong> et maximum 5 défauts secondaires. C'est cette rigueur qui justifie le prix.</p>
+    <div class="grid-2">
+      <div class="card card-red">
+        <span class="card-icon">🚫</span>
+        <h4>Défauts Primaires (0 toléré)</h4>
+        <ul>
+          <li>Grain noir complet (moisissure, fermentation excessive)</li>
+          <li>Grain acide (fermentation défectueuse)</li>
+          <li>Grain flotté (infesté, vide)</li>
+          <li>Grain desséché sur pied</li>
+          <li>Corps étranger (pierre, bois, métal)</li>
+        </ul>
+      </div>
+      <div class="card card-accent">
+        <span class="card-icon">⚠️</span>
+        <h4>Défauts Secondaires (max 5)</h4>
+        <ul>
+          <li>Grain partiel, brisé ou concassé</li>
+          <li>Grain immature ou coquille (parchment restant)</li>
+          <li>Grain mordu par insecte</li>
+          <li>Grain froissé ou malformé</li>
+          <li>Coque (hull/husk) présente</li>
+        </ul>
+      </div>
+    </div>
+    <h3 class="sh">Specialty Coffee vs Café Commercial : la chaîne de valeur</h3>
+    <p class="body">Ce n'est pas juste une note. C'est une <strong>philosophie de production entière</strong> qui change à chaque étape de la chaîne.</p>
+    <div class="process">
+      <div class="process-step">
+        <span class="process-step-num">ÉTAPE 01</span>
+        <h5>Sélection variétale</h5>
+        <p>Variétés heirloom (Typica, Bourbon, Gesha, SL28...) pour le specialty vs hybrides productifs pour le commercial</p>
+      </div>
+      <div class="process-step">
+        <span class="process-step-num">ÉTAPE 02</span>
+        <h5>Altitude & Terroir</h5>
+        <p>Specialty = haute altitude (1200m+), sol volcanique, ombre partielle. Le café ralentit sa maturation = plus de sucres</p>
+      </div>
+      <div class="process-step">
+        <span class="process-step-num">ÉTAPE 03</span>
+        <h5>Récolte sélective</h5>
+        <p>Uniquement à la main, cerise par cerise, seulement à maturité parfaite. Plusieurs passages. Très coûteux en main d'œuvre.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-step-num">ÉTAPE 04</span>
+        <h5>Traitement contrôlé</h5>
+        <p>Protocole précis, températures de fermentation surveillées, séchage lent sur lits surélevés. Aucun raccourci.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-step-num">ÉTAPE 05</span>
+        <h5>Torréfaction légère</h5>
+        <p>Le specialty est torréfié clair pour préserver le terroir. Une torréfaction foncée "cache" les arômes sous l'amertume.</p>
+      </div>
+    </div>
+    <h3 class="sh">Le Specialty Coffee en Europe aujourd'hui</h3>
+    <p class="body">Le marché specialty coffee européen croît de <strong>10-12% par an</strong>. Les millennials et Gen Z sont les principaux moteurs : ils veulent de la traçabilité, de l'éthique, et une expérience. C'est exactement votre cible.</p>
+    <div class="grid-3">
+      <div class="card card-green">
+        <span class="card-icon">📈</span>
+        <h4>Croissance du marché</h4>
+        <p>Le nombre de coffee shops specialty en Europe a triplé en 10 ans. La pandémie a accéléré la tendance "café de qualité à la maison" et la demande d'expériences authentiques hors domicile.</p>
+      </div>
+      <div class="card card-accent">
+        <span class="card-icon">🎯</span>
+        <h4>Votre client cible</h4>
+        <p>25-45 ans, urbain, actif sur Instagram, sensible à l'origine des produits, prêt à payer 20-30% plus cher pour du sens. Il a voyagé, il connaît. Ou il veut apprendre.</p>
+      </div>
+      <div class="card card-floral">
+        <span class="card-icon">🌿</span>
+        <h4>L'argument éthique</h4>
+        <p>Le specialty coffee paie le producteur 3 à 5 fois le prix du marché commodity. C'est un argument de vente authentique qui résonne avec une clientèle consciente. Racontez-le.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════ CHAPITRE 2 ═══════════════════════════ -->
+<div class="quote-break">
+  <blockquote>"Votre concurrent sert du café. Vous, vous racontez l'histoire de la personne qui l'a cultivé."</blockquote>
+</div>
+<section id="ch2" class="chapter-alt">
+  <div class="chapter">
+    <div class="ch-header">
+      <div class="ch-num">02</div>
+      <div class="ch-meta">
+        <span class="ch-kicker">Business & Stratégie</span>
+        <h2 class="ch-title">Se Différencier du<br><em>Brésilien Commercial</em></h2>
+        <p class="ch-subtitle">Votre concurrent à 1km sert probablement un blend Brésil/Robusta. Voici pourquoi c'est votre meilleure chance.</p>
+      </div>
+    </div>
+    <p class="body">Avant d'être pessimiste face à la concurrence établie, comprenez ce qu'ils servent vraiment — et pourquoi c'est une opportunité pour vous. Le café brésilien commercial est omniprésent précisément parce qu'il est <strong>facile à utiliser, indulgent à l'extraction, et peu cher</strong>. Ce n'est pas ce que vous allez proposer, et c'est une bonne chose.</p>
+    <h3 class="sh">Pourquoi le Brésil domine le marché commercial</h3>
+    <p class="body">Le Brésil est le 1er producteur mondial (~40% de la production). Voici pourquoi il est si populaire dans les cafés standards :</p>
+    <div class="grid-3">
+      <div class="card">
+        <h4>Profil "safe"</h4>
+        <p>Faible acidité, notes de noisette et chocolat au lait, corps moyen. Presque personne ne le trouve mauvais. C'est sa force — et sa faiblesse : pas de surprise, pas de mémoire.</p>
+      </div>
+      <div class="card">
+        <h4>Facile à extraire</h4>
+        <p>Indulgent aux erreurs d'extraction. Un espresso brésilien sous-extrait reste buvable. Idéal pour un café à rotation rapide avec personnel peu formé.</p>
+      </div>
+      <div class="card">
+        <h4>Prix bas</h4>
+        <p>Commodity cotée en bourse. Aucune traçabilité nécessaire. Un blend brésilien-robusta peut coûter 8-12€/kg. C'est la logique du volume, pas de la qualité.</p>
+      </div>
+    </div>
+    <div class="vs-banner">
+      <div class="vs-side vs-them">
+        <h4>Vos concurrents</h4>
+        <ul>
+          <li>Blend Brésil + Robusta non identifié</li>
+          <li>Score SCA inconnu (probablement &lt;75)</li>
+          <li>Torréfaction foncée pour uniformiser</li>
+          <li>Aucune information sur l'origine</li>
+          <li>Même espresso depuis des années</li>
+          <li>Lait chauffé une seule fois, reposé</li>
+          <li>Menu identique à 50 autres cafés</li>
+          <li>Prix bas, marge sur le volume</li>
+        </ul>
+      </div>
+      <div class="vs-divider">vs</div>
+      <div class="vs-side vs-you">
+        <h4>Vous</h4>
+        <ul>
+          <li>Single origin traçable jusqu'à la ferme</li>
+          <li>Score SCA 83+ affiché sur le menu</li>
+          <li>Torréfaction légère-medium, fraîche</li>
+          <li>Histoire complète du café (terroir, producteur)</li>
+          <li>Rotation saisonnière des origines</li>
+          <li>Lait frais, texturé à la commande</li>
+          <li>Menu court, maîtrisé, cohérent</li>
+          <li>Prix premium, fidélisation par l'expérience</li>
+        </ul>
+      </div>
+    </div>
+    <h3 class="sh">Le Brésilien en Specialty : ça existe et c'est bon</h3>
+    <p class="body">Attention — ne tombez pas dans le piège de l'"anti-brésil". Le Brésil produit aussi des cafés specialty exceptionnels. La différence, c'est la traçabilité et le niveau de qualité.</p>
+    <div class="callout callout-strategy">
+      <span class="callout-label">✅ Stratégie intelligente</span>
+      <h4>Proposez un Brésil Specialty — et expliquez la différence</h4>
+      <p>Rien n'est plus puissant que de servir un Brésil specialty (84+ points, ferme tracée, Bourbon rouge naturel de Minas Gerais) à un client qui "aime le café brésilien" de votre concurrent. Quand il goûte la différence — <strong>même origine, autre monde</strong> — vous avez un ambassadeur à vie.</p>
+    </div>
+    <h3 class="sh">Positionnement : les 5 piliers de votre identité</h3>
+    <div class="grid-2">
+      <div class="card card-accent">
+        <span class="card-icon">🗺️</span>
+        <h4>Pilier 1 · Traçabilité totale</h4>
+        <p>Chaque café de votre menu a un pays, une région, une ferme ou coopérative, un producteur nommé, une variété, un traitement, une altitude. Pas "café d'Éthiopie". <strong>Yirgacheffe, ferme Gedeo, Heirloom, Natural, 1900m, Kedir Roba, producteur.</strong></p>
+      </div>
+      <div class="card card-green">
+        <span class="card-icon">🔄</span>
+        <h4>Pilier 2 · Rotation saisonnière</h4>
+        <p>Le café est saisonnier. En Éthiopie la récolte est de Nov à Fév. Au Brésil, Mai-Septembre. Changer votre menu selon les arrivages fraîche = contenu, conversation, fidélisation. Vos clients reviennent pour "voir ce qu'il y a de nouveau".</p>
+      </div>
+      <div class="card card-teal">
+        <span class="card-icon">📖</span>
+        <h4>Pilier 3 · Pédagogie active</h4>
+        <p>Des fiches produit sur vos cafés. Un tableau noir avec les notes de dégustation. Des micro-formations gratuites le samedi matin. Faites de votre coffee shop un lieu où on apprend. Ce positionnement est totalement différent de vos concurrents.</p>
+      </div>
+      <div class="card card-floral">
+        <span class="card-icon">🤝</span>
+        <h4>Pilier 4 · Relation producteur</h4>
+        <p>Même si vous achetez via un torréfacteur (ce qui est normal), cherchez des torréfacteurs qui pratiquent le <strong>direct trade</strong> et visitent les fermes. Vous pouvez avoir une photo du producteur, une histoire à raconter. C'est du capital émotionnel.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">⚡</span>
+        <h4>Pilier 5 · Technique visible</h4>
+        <p>Pesez votre café. Chronométrez votre extraction. Votre comptoir est transparent — les clients voient votre rigueur. Ce "theatre du barista" est en lui-même une démonstration de valeur et justifie votre tarif.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🌱</span>
+        <h4>Bonus · Éthique & Impact</h4>
+        <p>Specialty = rémunération équitable des producteurs. Affichez-le. <strong>"Notre café est acheté 3 à 5× le prix du marché mondial."</strong> Dans le contexte actuel, c'est un argument qui compte.</p>
+      </div>
+    </div>
+    <h3 class="sh">Votre message en 1 phrase</h3>
+    <p class="body">Vous avez besoin d'une phrase simple, mémorable, qui explique votre différence à quelqu'un qui ne connaît pas le specialty coffee. Voici quelques modèles :</p>
+    <div class="callout callout-key">
+      <span class="callout-label">🎯 Exemples de positionnement</span>
+      <h4>Choisissez votre angle</h4>
+      <ul>
+        <li><strong>Le terroir :</strong> "Nous servons des cafés comme vous buvez du vin — chaque tasse raconte un lieu, une saison, un agriculteur."</li>
+        <li><strong>La qualité :</strong> "Nous ne servons que des cafés notés 83+ points par des experts internationaux. Votre café du matin mérite ça."</li>
+        <li><strong>L'éthique :</strong> "Le café que vous buvez ici est acheté directement au producteur, à un prix juste. Votre consommation change quelque chose."</li>
+        <li><strong>L'expérience :</strong> "Chez nous, commander un café c'est choisir un voyage — Éthiopie ce mois, Colombie le suivant."</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════ CHAPITRE 3 ═══════════════════════════ -->
+<section id="ch3">
+  <div class="chapter">
+    <div class="ch-header">
+      <div class="ch-num">03</div>
+      <div class="ch-meta">
+        <span class="ch-kicker">Géographie du Goût</span>
+        <h2 class="ch-title">Origines &amp; Terroir :<br><em>La Carte des Saveurs</em></h2>
+        <p class="ch-subtitle">Chaque région du monde produit un profil unique. Voici le guide complet des grandes origines specialty.</p>
+      </div>
+    </div>
+    <p class="body">Le terroir en café, c'est comme le terroir en vin : sol, altitude, climat, variété, et savoir-faire humain se combinent pour créer un profil aromatique unique et non-reproductible. Voici les grandes origines que vous rencontrerez sur le marché specialty.</p>
+    <h3 class="sh">Afrique de l'Est : les rois du fruité et du floral</h3>
+    <div class="grid-2" style="margin-bottom:1.5rem">
+      <div class="origin-card">
+        <div class="origin-header">
+          <div>
+            <div class="origin-flag">🇪🇹</div>
+            <div class="origin-name">Éthiopie</div>
+            <div class="origin-region">Yirgacheffe · Sidamo · Harrar · Guji</div>
+          </div>
+          <div style="text-align:right">
+            <div class="origin-score">86–93<span>SCA RANGE</span></div>
+          </div>
+        </div>
+        <div class="origin-flavor-bar">
+          <span class="flavor-tag ft-floral">Jasmin</span>
+          <span class="flavor-tag ft-fruit">Bergamote</span>
+          <span class="flavor-tag ft-fruit">Framboise</span>
+          <span class="flavor-tag ft-floral">Fleur de thé</span>
+          <span class="flavor-tag ft-citrus">Citron</span>
+          <span class="flavor-tag ft-choc">Chocolat noir</span>
+        </div>
+        <div class="origin-body">
+          <p>Berceau du café. Les variétés heirloom éthiopiennes sont <strong>génétiquement les plus diversifiées au monde</strong> — elles ont évolué pendant des millénaires dans les forêts de la région Kaffa. Un Yirgacheffe washed est souvent décrit comme "le café le plus floral et aromatique qui existe". À proposer impérativement sur votre menu.</p>
+          <p><strong>Washed (lavé) :</strong> profil floral, thé, bergamote, très délicat. <strong>Natural :</strong> fruité intense, framboise, myrtille, vineux, sucré.</p>
+          <div class="origin-specs">
+            <div class="origin-spec"><span class="origin-spec-val">1600–2200m</span><span class="origin-spec-label">Altitude</span></div>
+            <div class="origin-spec"><span class="origin-spec-val">Oct–Fév</span><span class="origin-spec-label">Récolte</span></div>
+            <div class="origin-spec"><span class="origin-spec-val">Heirloom</span><span class="origin-spec-label">Variétés</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="origin-card">
+        <div class="origin-header">
+          <div>
+            <div class="origin-flag">🇰🇪</div>
+            <div class="origin-name">Kenya</div>
+            <div class="origin-region">Nyeri · Kiambu · Kirinyaga · Murang'a</div>
+          </div>
+          <div style="text-align:right">
+            <div class="origin-score">85–92<span>SCA RANGE</span></div>
+          </div>
+        </div>
+        <div class="origin-flavor-bar">
+          <span class="flavor-tag ft-fruit">Cassis</span>
+          <span class="flavor-tag ft-fruit">Groseille</span>
+          <span class="flavor-tag ft-citrus">Pamplemousse</span>
+          <span class="flavor-tag ft-fruit">Tomate cerise</span>
+          <span class="flavor-tag ft-choc">Chocolat noir</span>
+        </div>
+        <div class="origin-body">
+          <p>Le Kenya produit parmi les cafés les plus distinctifs au monde. Les variétés <strong>SL-28 et SL-34</strong> développées dans les années 30 donnent une acidité phosphorique intense et une bouche juteuse comme un fruit croquant. Très apprécié des connaisseurs.</p>
+          <p>Presque exclusivement washed. Le système d'enchères (Nairobi Coffee Exchange) garantit une traçabilité exemplaire jusqu'à la station de lavage (washing station).</p>
+          <div class="origin-specs">
+            <div class="origin-spec"><span class="origin-spec-val">1500–2100m</span><span class="origin-spec-label">Altitude</span></div>
+            <div class="origin-spec"><span class="origin-spec-val">Nov–Jan</span><span class="origin-spec-label">Récolte</span></div>
+            <div class="origin-spec"><span class="origin-spec-val">SL-28/34</span><span class="origin-spec-label">Variétés</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grid-2" style="margin-bottom:1.5rem">
+      <div class="origin-card">
+        <div class="origin-header">
+          <div>
+            <div class="origin-flag">🇷🇼</div>
+            <div class="origin-name">Rwanda</div>
+            <div class="origin-region">Huye Mountain · Nyamasheke · Rulindo</div>
+          </div>
+          <div style="text-align:right">
+            <div class="origin-score">84–90<span>SCA RANGE</span></div>
+          </div>
+        </div>
+        <div class="origin-flavor-bar">
+          <span class="flavor-tag ft-fruit">Pêche</span>
+          <span class="flavor-tag ft-floral">Jasmin</span>
+          <span class="flavor-tag ft-caramel">Caramel</span>
+          <span class="flavor-tag ft-citrus">Orange</span>
+        </div>
+        <div class="origin-body">
+          <p>Café émergent de grande qualité. Bourbon rouge sur sols volcaniques. Profil doux et fruité, moins acide que le Kenya, excellent en flat white. <strong>Café avec une forte valeur éthique</strong> — le pays a transformé sa filière café pour reconstruire après 1994.</p>
+          <div class="origin-specs">
+            <div class="origin-spec"><span class="origin-spec-val">1500–2000m</span><span class="origin-spec-label">Altitude</span></div>
+            <div class="origin-spec"><span class="origin-spec-val">Mar–Juil</span><span class="origin-spec-label">Récolte</span></div>
+            <div class="origin-spec"><span class="origin-spec-val">Bourbon Rouge</span><span class="origin-spec-label">Variétés</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="origin-card">
+        <div class="origin-header">
+          <div>
+            <div class="origin-flag">🇧🇮</div>
+            <div class="origin-name">Burundi</div>
+            <div class="origin-region">Kayanza · Ngozi · Muyinga</div>
+          </div>
+          <div style="text-align:right">
+            <div class="origin-score">83–89<span>SCA RANGE</span></div>
+          </div>
+        </div>
+        <div class="origin-flavor-bar">
+          <span class="flavor-tag ft-fruit">Abricot</span>
+          <span class="flavor-tag ft-caramel">Miel</span>
+          <span class="flavor-tag ft-citrus">Citron vert</span>
+          <span class="flavor-tag ft-choc">Cacao</span>
+        </div>
+        <div class="origin-body">
+          <p>Voisin du Rwanda, profil similaire mais souvent plus doux et mieleux. <strong>Underrated</strong> : excellent rapport qualité-prix pour un coffee shop qui veut se démarquer avec une origine moins connue — et donc plus mémorable pour le client.</p>
+          <div class="origin-specs">
+            <div class="origin-spec"><span class="origin-spec-val">1400–2000m</span><span class="origin-spec-label">Altitude</span></div>
+            <div class="origin-spec"><span class="origin-spec-val">Mar–Juil</span><span class="origin-spec-label">Récolte</span></div>
+            <div class="origin-spec"><span class="origin-spec-val">Bourbon</span><span class="origin-spec-label">Variétés</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h3 class="sh">Amériques : l'équilibre et le corps</h3>
+    <div class="grid-2" style="margin-bottom:1.5rem">
+      <div class="origin-card">
+        <div class="origin-header">
+          <div>
+            <div class="origin-flag">🇨🇴</div>
+            <div class="origin-name">Colombie</div>
+            <div class="origin-region">Huila · Nariño · Antioquia · Cauca</div>
+          </div>
+          <div style="text-align:right">
+            <div class="origin-score">84–92<span>SCA RANGE</span></div>
+          </div>
+        </div>
+        <div class="origin-flavor-bar">
+          <span class="flavor-tag ft-caramel">Caramel</span>
+          <span class="flavor-tag ft-fruit">Mandarine</span>
+          <span class="flavor-tag ft-choc">Chocolat au lait</span>
+          <span class="flavor-tag ft-nutty">Noisette</span>
+          <span class="flavor-tag ft-caramel">Panela (sucre brun)</span>
+        </div>
+        <div class="origin-body">
+          <p>La Colombie est <strong>l'origine la plus accessible pour introduire quelqu'un au specialty coffee</strong>. Profil équilibré, doux, ni trop acide ni trop amer, notes de caramel et fruits orangés. Idéal comme espresso de découverte pour vos clients habitués au café commercial.</p>
+          <p>Double récolte annuelle (avantage logistique). La région Huila est particulièrement reconnue pour la qualité.</p>
+          <div class="origin-specs">
+            <div class="origin-spec"><span class="origin-spec-val">1200–2000m</span><span class="origin-spec-label">Altitude</span></div>
+            <div class="origin-spec"><span class="origin-spec-val">Avr–Jun / Oct–Fév</span><span class="origin-spec-label">Double récolte</span></div>
+            <div class="origin-spec"><span class="origin-spec-val">Caturra · Typica</span><span class="origin-spec-label">Variétés</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="origin-card">
+        <div class="origin-header">
+          <div>
+            <div class="origin-flag">🇧🇷</div>
+            <div class="origin-name">Brésil Specialty</div>
+            <div class="origin-region">Minas Gerais · Sul de Minas · Cerrado</div>
+          </div>
+          <div style="text-align:right">
+            <div class="origin-score">82–90<span>SCA RANGE</span></div>
+          </div>
+        </div>
+        <div class="origin-flavor-bar">
+          <span class="flavor-tag ft-nutty">Noisette</span>
+          <span class="flavor-tag ft-choc">Chocolat noir</span>
+          <span class="flavor-tag ft-caramel">Caramel</span>
+          <span class="flavor-tag ft-choc">Praline</span>
+          <span class="flavor-tag ft-nutty">Amande</span>
+        </div>
+        <div class="origin-body">
+          <p>Le Brésil specialty, c'est l'argument ultime contre vos concurrents. <strong>Même pays, expérience totalement différente.</strong> Bourbon rouge ou Amarelo Natural, ferme tracée, score 84+. Doux, peu acide, chocolaté et doux — parfait pour convertir les habitués du café commercial.</p>
+          <p>Proposez-le avec le slogan : "Le Brésil que vos voisins ne servent pas."</p>
+          <div class="origin-specs">
+            <div class="origin-spec"><span class="origin-spec-val">900–1300m</span><span class="origin-spec-label">Altitude</span></div>
+            <div class="origin-spec"><span class="origin-spec-val">Mai–Sep</span><span class="origin-spec-label">Récolte</span></div>
+            <div class="origin-spec"><span class="origin-spec-val">Bourbon · Catuai</span><span class="origin-spec-label">Variétés</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="origin-card">
+        <div class="origin-header">
+          <div>
+            <div class="origin-flag">🇬🇹</div>
+            <div class="origin-name">Guatemala</div>
+            <div class="origin-region">Antigua · Huehuetenango · Acatenango</div>
+          </div>
+          <div style="text-align:right">
+            <div class="origin-score">84–90<span>SCA RANGE</span></div>
+          </div>
+        </div>
+        <div class="origin-flavor-bar">
+          <span class="flavor-tag ft-choc">Chocolat noir</span>
+          <span class="flavor-tag ft-spice">Cannelle</span>
+          <span class="flavor-tag ft-fruit">Prune</span>
+          <span class="flavor-tag ft-caramel">Cassonade</span>
+        </div>
+        <div class="origin-body">
+          <p>Sols volcaniques riches, grande amplitude thermique. Profil plus "chocolaté et épicé" qu'africain. <strong>Excellent choix pour un espresso principal</strong> — moins intimidant pour les non-initiés, caractère marqué pour les connaisseurs.</p>
+          <div class="origin-specs">
+            <div class="origin-spec"><span class="origin-spec-val">1300–2000m</span><span class="origin-spec-label">Altitude</span></div>
+            <div class="origin-spec"><span class="origin-spec-val">Nov–Avr</span><span class="origin-spec-label">Récolte</span></div>
+            <div class="origin-spec"><span class="origin-spec-val">Bourbon · Caturra</span><span class="origin-spec-label">Variétés</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="origin-card">
+        <div class="origin-header">
+          <div>
+            <div class="origin-flag">🇵🇦</div>
+            <div class="origin-name">Panama · Gesha</div>
+            <div class="origin-region">Boquete · Volcan Baru</div>
+          </div>
+          <div style="text-align:right">
+            <div class="origin-score">90–96<span>SCA RANGE</span></div>
+          </div>
+        </div>
+        <div class="origin-flavor-bar">
+          <span class="flavor-tag ft-floral">Jasmin</span>
+          <span class="flavor-tag ft-floral">Rose</span>
+          <span class="flavor-tag ft-citrus">Bergamote</span>
+          <span class="flavor-tag ft-fruit">Mangue</span>
+          <span class="flavor-tag ft-caramel">Miel de fleurs</span>
+        </div>
+        <div class="origin-body">
+          <p>La variété <strong>Gesha (ou Geisha)</strong> est le "grand cru" absolu du café. Originaire d'Éthiopie, elle s'exprime de manière extraordinaire au Panama. Prix : 50–200€/kg vert. <strong>Optionnel mais redoutable</strong> : proposer un Gesha en "café d'exception du mois" à 8–12€ la tasse, c'est une carte mémorable.</p>
+          <div class="origin-specs">
+            <div class="origin-spec"><span class="origin-spec-val">1500–1900m</span><span class="origin-spec-label">Altitude</span></div>
+            <div class="origin-spec"><span class="origin-spec-val">Jan–Mar</span><span class="origin-spec-label">Récolte</span></div>
+            <div class="origin-spec"><span class="origin-spec-val">Gesha</span><span class="origin-spec-label">Variété</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h3 class="sh">Asie-Pacifique : le corps et l'exotisme</h3>
+    <div class="grid-3">
+      <div class="card card-teal">
+        <div class="origin-flag" style="font-size:1.5rem;display:block;margin-bottom:0.5rem">🇮🇩</div>
+        <h4>Indonésie · Sumatra</h4>
+        <p>Corps lourd, terreux, boisé, champignon, cèdre. Méthode wet-hulling unique (Giling Basah). Très faible acidité. <strong>Pour les amateurs de café corsé</strong>. Mandailing, Gayo sont les sous-régions les plus connues.</p>
+        <div style="margin-top:0.8rem"><span class="flavor-tag ft-choc">Terre</span><span class="flavor-tag ft-spice">Herbes</span><span class="flavor-tag ft-nutty">Cèdre</span></div>
+      </div>
+      <div class="card card-green">
+        <div class="origin-flag" style="font-size:1.5rem;display:block;margin-bottom:0.5rem">🇾🇪</div>
+        <h4>Yémen · Moka</h4>
+        <p>L'origine historique (c'est de là que vient le mot "Moka"). Profil complexe, épicé, vineux, fruits secs. Rare et cher. <strong>Conversation piece</strong> exceptionnel — servir un Yémen, c'est servir 1000 ans d'histoire du café.</p>
+        <div style="margin-top:0.8rem"><span class="flavor-tag ft-spice">Épices</span><span class="flavor-tag ft-fruit">Raisins secs</span><span class="flavor-tag ft-choc">Cuir</span></div>
+      </div>
+      <div class="card card-floral">
+        <div class="origin-flag" style="font-size:1.5rem;display:block;margin-bottom:0.5rem">🇵🇬</div>
+        <h4>Papouasie · PNG</h4>
+        <p>Doux, fruité, corps moyen. Notes de fruits tropicaux et fleurs. <strong>Origine rare en Europe</strong> — différenciant, prix accessible, profil accessible. Parfait comme "découverte du mois".</p>
+        <div style="margin-top:0.8rem"><span class="flavor-tag ft-fruit">Tropical</span><span class="flavor-tag ft-floral">Floral</span><span class="flavor-tag ft-caramel">Sucré</span></div>
+      </div>
+    </div>
+    <h3 class="sh">Les Grandes Variétés : le "cépage" du café</h3>
+    <p class="body">Comme en viticulture, la variété (cultivar) influence profondément le profil aromatique. Voici les principales que vous rencontrerez :</p>
+    <table class="tbl">
+      <thead>
+        <tr><th>Variété</th><th>Origine</th><th>Profil typique</th><th>Particularité</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Typica</td><td>Éthiopie → monde entier</td><td>Doux, floral, légèrement fruité</td><td>La variété "mère" de la plupart des Arabica. Productive, sensible.</td></tr>
+        <tr><td>Bourbon</td><td>Île Bourbon (Réunion)</td><td>Sucré, fruité, corps moyen</td><td>Rouge, Jaune ou Rose selon mutation. Très prismé en specialty.</td></tr>
+        <tr><td>Gesha / Geisha</td><td>Éthiopie → Panama</td><td>Floral intense, bergamote, tropical</td><td>La variété la plus cotée. Prix record : 1000$/livre.</td></tr>
+        <tr><td>SL-28 / SL-34</td><td>Kenya (sélection Scot Labs)</td><td>Cassis, groseille, acidité vive</td><td>Spécifique au Kenya. Résistant à la sécheresse.</td></tr>
+        <tr><td>Pacamara</td><td>El Salvador</td><td>Floral, fruité, chocolat, corps fort</td><td>Hybride Pacas × Maragogype. Très gros grain.</td></tr>
+        <tr><td>Caturra</td><td>Brésil (mutation Bourbon)</td><td>Agrumes, noisette, corps moyen</td><td>Compact, très productif. Standard en Colombie.</td></tr>
+        <tr><td>Heirloom éthiopien</td><td>Éthiopie</td><td>Variable : floral, fruité, épicé</td><td>Collectif de variétés sauvages. Génétiquement le plus riche.</td></tr>
+        <tr><td>Catuai</td><td>Brésil</td><td>Noisette, chocolat, caramel</td><td>Hybride Caturra × HdT. Très répandu au Brésil.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<!-- ═══════════════════════════ CHAPITRE 4 ═══════════════════════════ -->
+<section id="ch4" class="chapter-alt">
+  <div class="chapter">
+    <div class="ch-header">
+      <div class="ch-num">04</div>
+      <div class="ch-meta">
+        <span class="ch-kicker">Du Fruit à la Tasse</span>
+        <h2 class="ch-title">Traitements Avancés :<br><em>Le Goût se Fabrique ici</em></h2>
+        <p class="ch-subtitle">La méthode de traitement post-récolte est le paramètre qui impacte le plus le profil aromatique. C'est votre arme de différenciation.</p>
+      </div>
+    </div>
+    <p class="body">Vos concurrents ne savent probablement pas comment leur café a été traité. Vous, si. Et vous pouvez l'expliquer. Voici un guide complet des méthodes — des classiques aux expérimentales qui font l'actualité du specialty coffee.</p>
+    <div class="grid-2">
+      <div class="card card-teal">
+        <span class="card-icon">💧</span>
+        <h4>Méthode Lavée (Washed / Wet)</h4>
+        <p><strong>Processus :</strong> La pulpe est retirée mécaniquement en 24h, puis les grains fermentent dans l'eau 24–72h pour éliminer le mucilage, avant un séchage sur lits surélevés.</p>
+        <br>
+        <p><strong>Résultat :</strong> Café "propre", transparent sur le terroir. L'acidité et les notes florales ressortent clairement. Peu de sucres résiduels.</p>
+        <br>
+        <p><strong>Mots-clés :</strong> Propre · Acide · Brillant · Floral · Terroir visible</p>
+        <br>
+        <p><strong>Origines typiques :</strong> Kenya, Éthiopie washed, Colombie, Guatemala</p>
+      </div>
+      <div class="card card-accent">
+        <span class="card-icon">☀️</span>
+        <h4>Méthode Naturelle (Natural / Dry)</h4>
+        <p><strong>Processus :</strong> La cerise entière sèche au soleil pendant 3–6 semaines. Le fruit entoure le grain et fermente lentement. Le sucre du fruit pénètre dans le grain.</p>
+        <br>
+        <p><strong>Résultat :</strong> Corps plus plein, sucrosité naturelle élevée, notes de fruits fermentés (myrtille, framboise, raisin), parfois légèrement vineux.</p>
+        <br>
+        <p><strong>Mots-clés :</strong> Fruité · Sucré · Corps · Vineux · Complexe</p>
+        <br>
+        <p><strong>Origines typiques :</strong> Éthiopie natural, Brésil natural, Yémen</p>
+      </div>
+      <div class="card card-green">
+        <span class="card-icon">🍯</span>
+        <h4>Honey Process (Mel)</h4>
+        <p><strong>Processus :</strong> La peau externe est retirée mais le mucilage (la partie "mielleuse") reste en tout ou partie sur le grain pendant le séchage. Black honey = plus de mucilage → plus fruité.</p>
+        <br>
+        <p><strong>Résultat :</strong> Entre washed et natural. Sucré, caramel, corps moyen, moins acide que le washed. Très polyvalent.</p>
+        <br>
+        <p><strong>Variantes :</strong> Yellow / Red / Black Honey selon la quantité de mucilage conservée.</p>
+        <br>
+        <p><strong>Origines typiques :</strong> Costa Rica, Brésil, El Salvador</p>
+      </div>
+      <div class="card card-floral">
+        <span class="card-icon">🧪</span>
+        <h4>Traitements Expérimentaux</h4>
+        <p><strong>Anaerobic Fermentation :</strong> Fermentation en environnement sans oxygène (cuves étanches). Profil très intense, vineux, parfois "exotique". Tendance depuis 2017, très instagrammable.</p>
+        <br>
+        <p><strong>Carbonic Maceration :</strong> Inspiré du vin naturel. Cerises entières fermentent avec CO2 injecté. Notes de fruits très particulières, fermentées, violette parfois.</p>
+        <br>
+        <p><strong>Koji, Barrel-aged :</strong> Fermentation avec champignons Koji (umami) ou en fûts de whisky/vin. Ultra-premium.</p>
+        <br>
+        <p><strong>Conseil :</strong> À proposer ponctuellement comme "café événement" — pas en permanence.</p>
+      </div>
+    </div>
+    <h3 class="sh">Comment utiliser le traitement comme argument de vente</h3>
+    <div class="convo">
+      <div class="convo-turn">
+        <span class="convo-speaker">CLIENT</span>
+        <div class="convo-bubble">"Qu'est-ce que vous recommandez aujourd'hui ?"</div>
+      </div>
+      <div class="convo-turn barista">
+        <span class="convo-speaker">VOUS</span>
+        <div class="convo-bubble">"J'ai deux options intéressantes. Le premier, c'est un Éthiopie Yirgacheffe — il est lavé, donc très propre avec des notes de jasmin et bergamote, un peu comme un thé earl grey. Le deuxième, c'est un Brésil Natural — plus doux, chocolaté, avec une petite touche de framboise. Lequel vous attire plus ?"</div>
+      </div>
+      <div class="convo-turn">
+        <span class="convo-speaker">CLIENT</span>
+        <div class="convo-bubble">"Wow, je savais pas que le café pouvait avoir autant de goûts... le Brésil fruité, ça m'intrigue."</div>
+      </div>
+      <div class="convo-turn barista">
+        <span class="convo-speaker">VOUS</span>
+        <div class="convo-bubble">"Parfait. Et c'est intéressant — ce n'est pas le café brésilien que vous connaissez peut-être. Celui-ci est sélectionné, noté 86 points sur 100 par des experts. Le café que vos voisins servent avec "Brésil" dessus, c'est une autre planète."</div>
+      </div>
+    </div>
+    <div class="callout callout-key">
+      <span class="callout-label">🗂️ Référence rapide</span>
+      <h4>Méthode → Profil → Usage idéal</h4>
+      <table class="tbl" style="margin:0.5rem 0 0">
+        <thead><tr><th>Méthode</th><th>Profil simplifié</th><th>Meilleure utilisation</th></tr></thead>
+        <tbody>
+          <tr><td>Washed</td><td>Clair, floral, acide, propre</td><td>Café filtre, espresso pour initiés, V60</td></tr>
+          <tr><td>Natural</td><td>Fruité, sucré, vineux, corps</td><td>Espresso seul, flat white, découverte</td></tr>
+          <tr><td>Honey</td><td>Sucré, caramel, équilibré</td><td>Cappuccino, latte, menu quotidien</td></tr>
+          <tr><td>Anaerobic</td><td>Très intense, exotique, vineux</td><td>Café du mois, menu exception, filtre</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════ CHAPITRE 5 ═══════════════════════════ -->
+<section id="ch5">
+  <div class="chapter">
+    <div class="ch-header">
+      <div class="ch-num">05</div>
+      <div class="ch-meta">
+        <span class="ch-kicker">Approvisionnement</span>
+        <h2 class="ch-title">Sourcer le Bon Café :<br><em>Construire sa Supply Chain</em></h2>
+        <p class="ch-subtitle">Trouver les bons partenaires est aussi important que de savoir préparer le café. La qualité commence à l'achat.</p>
+      </div>
+    </div>
+    <h3 class="sh">La chaîne du specialty coffee : qui fait quoi</h3>
+    <div class="timeline">
+      <div class="tl-item">
+        <h4>Le Producteur (Farmer)</h4>
+        <p>La ferme ou la coopérative qui cultive et traite le café. En specialty coffee, c'est la personne dont vous pouvez raconter l'histoire. Certains torréfacteurs vous donneront son nom, sa photo, les coordonnées GPS de la ferme.</p>
+      </div>
+      <div class="tl-item">
+        <h4>L'Importateur / Négociant Vert</h4>
+        <p>Achète le café vert du producteur et le revend aux torréfacteurs. En specialty, certains pratiquent le <strong>direct trade</strong> (relation directe ferme-torréfacteur). Exemples : Genuine Origin, Nordic Approach, Collaborative Coffee Source, Trabocca.</p>
+      </div>
+      <div class="tl-item">
+        <h4>Le Torréfacteur (votre fournisseur direct)</h4>
+        <p>Achète le café vert, torréfie selon un profil précis, vous livre le café torréfié. C'est votre interlocuteur principal. Choisissez-en un qui partage votre philosophie specialty.</p>
+      </div>
+      <div class="tl-item">
+        <h4>Vous (le Coffee Shop)</h4>
+        <p>Vous êtes le dernier maillon avant le client. Votre responsabilité : conserver le café correctement, extraire avec précision, raconter l'histoire avec passion.</p>
+      </div>
+    </div>
+    <h3 class="sh">Les Certifications : ce qu'elles valent vraiment</h3>
+    <p class="body">Toutes les certifications ne sont pas équivalentes. Voici ce que vous devez savoir pour ne pas vous faire vendre du "greenwashing".</p>
+    <table class="tbl">
+      <thead>
+        <tr><th>Certification</th><th>Ce qu'elle garantit</th><th>Valeur réelle</th><th>Pertinence café specialty</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>SCA Specialty Score</td><td>Qualité organoleptique notée par Q-Grader</td><td>⭐⭐⭐⭐⭐ Référence absolue</td><td>Indispensable</td></tr>
+        <tr><td>Fair Trade / Commerce Équitable</td><td>Prix minimum garanti au producteur</td><td>⭐⭐⭐ Éthique commerciale</td><td>Utile en communication</td></tr>
+        <tr><td>Rainforest Alliance</td><td>Pratiques environnementales et sociales</td><td>⭐⭐⭐ Environnement</td><td>Utile mais ne garantit pas la qualité</td></tr>
+        <tr><td>Bio / Organic</td><td>Sans pesticides chimiques</td><td>⭐⭐ Variable selon pays</td><td>Argument clientèle consciente</td></tr>
+        <tr><td>Direct Trade</td><td>Relation directe torréfacteur-producteur (non certifié officiellement)</td><td>⭐⭐⭐⭐ Traçabilité maximale</td><td>Le meilleur signal en specialty</td></tr>
+        <tr><td>UTZ</td><td>Fusionné avec Rainforest Alliance</td><td>⭐⭐ Pratiques durables</td><td>Limité pour le specialty</td></tr>
+      </tbody>
+    </table>
+    <div class="callout callout-warn">
+      <span class="callout-label">⚠️ Vigilance</span>
+      <h4>Bio ne veut pas dire bon, et bon ne veut pas toujours dire bio</h4>
+      <p>Un café bio peut être de mauvaise qualité gustative. Inversement, la plupart des cafés specialty de haute altitude cultivés par de petits producteurs n'utilisent presque pas de pesticides par défaut (les altitudes et les microclimats y rendent les parasites rares), mais ne sont pas certifiés bio faute de budget pour la certification. <strong>Priorité : score SCA et traçabilité. La certification bio est un bonus.</strong></p>
+    </div>
+    <h3 class="sh">Comment évaluer et choisir votre torréfacteur</h3>
+    <div class="grid-2">
+      <div class="card card-green">
+        <span class="card-icon">✅</span>
+        <h4>Les bons signaux</h4>
+        <ul>
+          <li>Peut vous donner le score SCA du café vert acheté</li>
+          <li>Mentionne le nom du producteur/ferme</li>
+          <li>Publie ses dates de torréfaction</li>
+          <li>Propose des cuppings réguliers à ses clients</li>
+          <li>A une relation de long terme avec ses producteurs</li>
+          <li>Accepte des petites commandes d'essai</li>
+          <li>Peut vous expliquer son profil de torréfaction</li>
+          <li>Suggère une recette d'extraction adaptée à chaque café</li>
+        </ul>
+      </div>
+      <div class="card card-red">
+        <span class="card-icon">🚩</span>
+        <h4>Les red flags</h4>
+        <ul>
+          <li>Ne peut pas vous dire d'où vient exactement le café</li>
+          <li>Pas de date de torréfaction sur l'emballage</li>
+          <li>Torréfaction toujours très foncée (cache les défauts)</li>
+          <li>Parle uniquement de volume et de prix, jamais de qualité</li>
+          <li>Vous propose un "blend maison" sans transparence</li>
+          <li>N'a jamais entendu parler du SCA ou du cupping</li>
+          <li>Conditions commerciales avec exclusivité non-négociable dès le départ</li>
+        </ul>
+      </div>
+    </div>
+    <h3 class="sh">La stratégie des 2 torréfacteurs</h3>
+    <div class="callout callout-strategy">
+      <span class="callout-label">🎯 Recommandation opérationnelle</span>
+      <h4>Travaillez avec 2 torréfacteurs : un principal, un de découverte</h4>
+      <ul>
+        <li><strong>Torréfacteur principal (80% de vos achats) :</strong> régularité, fiabilité logistique, 2-3 origines stables. Il connaît votre machine, votre recette. Négociez un vrai partenariat — visite de ses locaux, participer à un cupping, formation.</li>
+        <li><strong>Torréfacteur de découverte (20%) :</strong> rotation mensuelle ou bimestrielle. Vous testez de nouvelles origines, des traitements expérimentaux, des lots limités. Ça crée du contenu, de la conversation et de l'excitation chez vos clients réguliers.</li>
+        <li><strong>Bonus :</strong> Affichez les deux sur votre menu avec leurs noms. "Torréfié par [Nom], Lisboa" ou "Torréfié par [Nom], Porto". C'est une belle façon de valoriser votre réseau local et de montrer votre rigueur.</li>
+      </ul>
+    </div>
+    <h3 class="sh">Budget approvisionnement : ce qu'il faut prévoir</h3>
+    <div class="tbl" style="display:table;width:100%">
+      <table class="tbl">
+        <thead><tr><th>Poste</th><th>Fourchette prix</th><th>Fréquence</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Espresso principal (specialty 83-86pts)</td><td>18–28€/kg</td><td>Hebdomadaire</td><td>Commandez 5-10kg à la fois pour la fraîcheur</td></tr>
+          <tr><td>Single origin filtre (85-90pts)</td><td>25–45€/kg</td><td>Bimensuel</td><td>Rotation mensuelle possible</td></tr>
+          <tr><td>Café d'exception/événement (90+pts)</td><td>45–120€/kg</td><td>Mensuel/exceptionnel</td><td>Petite quantité, prix tasse élevé, contenu marketing</td></tr>
+          <tr><td>Café Gesha ou lot de compétition</td><td>80–200€/kg</td><td>Ponctuel</td><td>1-2x/an pour l'événementiel et la notoriété</td></tr>
+          <tr><td>Budget cupping/test</td><td>50–100€/mois</td><td>Mensuel</td><td>Investissement en formation continue</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════ CHAPITRE 6 ═══════════════════════════ -->
+<div class="quote-break">
+  <blockquote>"Apprendre à déguster le café, c'est apprendre à écouter ce que la terre a voulu dire."</blockquote>
+</div>
+<section id="ch6" class="chapter-alt">
+  <div class="chapter">
+    <div class="ch-header">
+      <div class="ch-num">06</div>
+      <div class="ch-meta">
+        <span class="ch-kicker">Analyse Sensorielle</span>
+        <h2 class="ch-title">Cupping &amp; Éducation<br><em>des Sens</em></h2>
+        <p class="ch-subtitle">Le cupping est le protocole de dégustation professionnel. Savoir le pratiquer vous rend meilleur acheteur et meilleur vendeur.</p>
+      </div>
+    </div>
+    <h3 class="sh">Le Protocole de Cupping SCA</h3>
+    <p class="body">Le cupping est une méthode standardisée pour évaluer le café de façon objective et comparative. Tout Q-Grader utilise ce protocole. En le maîtrisant, vous pouvez évaluer un café avant d'acheter — et organiser des sessions pour vos clients (excellent outil marketing).</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <h4>1 · Préparation (ratio 8.25g/150ml)</h4>
+        <p>Moulez 8,25g de café par tasse, finesse medium (comme grosse semoule). Utilisez 5 tasses du même café pour évaluer l'uniformité. Posez le café moulu dans des bols, sentez à sec — notez la fragrance.</p>
+      </div>
+      <div class="tl-item">
+        <h4>2 · Eau à 93°C — infusion 4 minutes</h4>
+        <p>Versez l'eau en cercle. Une croûte se forme. Attendez exactement 4 minutes. Sentez pendant l'infusion — les arômes sont à leur maximum. Notez ce que vous percevez immédiatement.</p>
+      </div>
+      <div class="tl-item">
+        <h4>3 · Casser la croûte ("Break")</h4>
+        <p>Avec une cuillère, brisez doucement la croûte en repoussant les grains vers le bord. Sentez la bouffée d'arômes libérée — c'est le moment le plus intense de la dégustation. Évaluez: floral, fruité, chocolaté, épicé…</p>
+      </div>
+      <div class="tl-item">
+        <h4>4 · Retirer les résidus, attendre 8-10 min</h4>
+        <p>Écumez les grains flottants. Le café descend à environ 70°C — température idéale pour déguster. Trop chaud, le palais ne distingue pas les nuances.</p>
+      </div>
+      <div class="tl-item">
+        <h4>5 · Dégustation par aspiration ("slurping")</h4>
+        <p>Remplissez une cuillère creuse, aspirez fort pour vaporiser le café sur tout le palais. Ce n'est pas élégant mais c'est efficace. Évaluez : acide, sucré, amer, astringent, corps, aftertaste. Répétez à différentes températures.</p>
+      </div>
+      <div class="tl-item">
+        <h4>6 · Notation et comparaison</h4>
+        <p>Remplissez votre feuille de notation SCA pour chaque tasse. Comparez entre les 5 tasses (uniformité). Si vous cuppez plusieurs origines, comparez-les sur les mêmes critères. C'est ainsi que vous achetez intelligemment.</p>
+      </div>
+    </div>
+    <h3 class="sh">Le Flavor Wheel SCA : votre vocabulaire</h3>
+    <p class="body">Le Flavor Wheel de la SCA est le référentiel universel des arômes du café. Il part du centre (catégories larges) vers l'extérieur (descriptions précises). Voici les grandes catégories à connaître :</p>
+    <div class="wheel-grid">
+      <div class="wheel-cat">
+        <div class="wheel-cat-name" style="color:var(--red-fruit)">🍓 Fruité</div>
+        <p class="wheel-sub">Berry (framboise, myrtille, cassis, fraise), Agrumes (citron, orange, pamplemousse, lime), Fruits à pépins (pomme, poire, raisin), Tropicaux (mangue, passion, ananas), Fruits secs (raisin, pruneau, datte)</p>
+      </div>
+      <div class="wheel-cat">
+        <div class="wheel-cat-name" style="color:var(--floral)">🌸 Floral</div>
+        <p class="wheel-sub">Jasmin, rose, lavande, fleur d'oranger, hibiscus, bergamote (souvent classée ici), violette, acacia. Ces notes sont caractéristiques des Éthiopiens washed et des variétés heirloom.</p>
+      </div>
+      <div class="wheel-cat">
+        <div class="wheel-cat-name" style="color:var(--copper)">🍫 Sucré / Chocolaté</div>
+        <p class="wheel-sub">Cacao, chocolat noir, chocolat au lait, praline, sucre brun (panela), miel, caramel, toffee, vanille, malt. Profils typiques des Brésiliens, Colombiens et traitements naturels.</p>
+      </div>
+      <div class="wheel-cat">
+        <div class="wheel-cat-name" style="color:var(--green)">🌿 Végétal / Épicé</div>
+        <p class="wheel-sub">Herbes fraîches, thé vert, olive, noix verte (notes végétales souvent négatives = sous-extraction). Épices: cannelle, cardamome, poivre, clou de girofle (souvent positives).</p>
+      </div>
+      <div class="wheel-cat">
+        <div class="wheel-cat-name" style="color:var(--copper)">🫘 Noix / Céréales</div>
+        <p class="wheel-sub">Noisette, amande, noix de cajou, cacahuète. Pain grillé, biscuit, céréales maltées, orge. Profils typiques des Robusta de qualité, des Éthiopiens Harrar, des torréfactions medium-dark.</p>
+      </div>
+      <div class="wheel-cat">
+        <div class="wheel-cat-name" style="color:var(--muted)">⚠️ Défauts</div>
+        <p class="wheel-sub">Caoutchouc, vinaigre, moisissure, médicament, fumée, cendres, bois humide, terreux excessif, urine, animal. Si vous percevez ces notes : le café présente des défauts de production ou d'extraction.</p>
+      </div>
+    </div>
+    <h3 class="sh">Les 5 attributs gustatifs du café</h3>
+    <div class="sensory-grid">
+      <div class="sense-box">
+        <span class="sense-icon">🍋</span>
+        <span class="sense-name">Acidité</span>
+        <p class="sense-desc">Qualité, pas quantité. Une bonne acidité est "brillante, lumineuse". Liée aux acides organiques (chlorogénique, citrique, malique). Kenya = phosphorique. Éthiopie = citrique. Brésil = faible.</p>
+      </div>
+      <div class="sense-box">
+        <span class="sense-icon">🍫</span>
+        <span class="sense-name">Douceur</span>
+        <p class="sense-desc">Sucre naturel du café. Un café bien traité et bien extrait est naturellement sucré sans sucre ajouté. La torréfaction légère préserve mieux les sucres.</p>
+      </div>
+      <div class="sense-box">
+        <span class="sense-icon">☕</span>
+        <span class="sense-name">Corps</span>
+        <p class="sense-desc">Poids et texture en bouche. "Léger comme de l'eau", "soyeux comme du lait", "épais comme un sirop". Lié aux huiles, protéines et insoluble dans la tasse.</p>
+      </div>
+      <div class="sense-box">
+        <span class="sense-icon">⚖️</span>
+        <span class="sense-name">Amertume</span>
+        <p class="sense-desc">Toujours présente, ne doit jamais dominer en specialty. L'amertume agréable (cacao noir) est différente de l'amertume désagréable (charbon, cendres) = sur-extraction ou défaut.</p>
+      </div>
+      <div class="sense-box">
+        <span class="sense-icon">🔄</span>
+        <span class="sense-name">Longueur</span>
+        <p class="sense-desc">L'aftertaste. Un bon café reste en bouche 30-60 secondes avec des notes agréables. Un café commercial disparaît vite ou laisse une amertume persistante désagréable.</p>
+      </div>
+    </div>
+    <h3 class="sh">Organiser un Cupping pour vos clients : outil marketing puissant</h3>
+    <div class="callout callout-strategy">
+      <span class="callout-label">💡 Idée Business</span>
+      <h4>Le "Cupping du Samedi" — votre différenciateur n°1</h4>
+      <p>Chaque samedi matin (10h-11h, 8-10 personnes, sur réservation), organisez un cupping guidé. Vous présentez 3 origines différentes. Vous expliquez. Les gens apprennent à déguster. Prix : 15-25€. <strong>Ce que ça génère :</strong></p>
+      <ul>
+        <li>Une communauté autour de votre coffee shop (les gens reviennent)</li>
+        <li>Du contenu Instagram naturel (les gens partagent l'expérience)</li>
+        <li>Des ventes de café en grain à emporter (conversion directe)</li>
+        <li>Une réputation d'expert qui légitime votre positionnement premium</li>
+        <li>Un revenu complémentaire prévisible</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════ CHAPITRE 7 ═══════════════════════════ -->
+<section id="ch7">
+  <div class="chapter">
+    <div class="ch-header">
+      <div class="ch-num">07</div>
+      <div class="ch-meta">
+        <span class="ch-kicker">Techniques d'Extraction</span>
+        <h2 class="ch-title">Méthodes de Brassage :<br><em>Au-Delà de l'Espresso</em></h2>
+        <p class="ch-subtitle">Un coffee shop specialty propose au minimum une méthode filtre. C'est votre meilleure vitrine pour les cafés d'exception.</p>
+      </div>
+    </div>
+    <p class="body">L'espresso est la base, mais le specialty coffee s'exprime souvent mieux en extraction douce. Proposer des méthodes filtre vous différencie immédiatement de vos concurrents et permet de valoriser des cafés delicats qu'un espresso à 9 bars "écraserait".</p>
+    <div class="grid-2">
+      <div class="card card-accent">
+        <span class="card-icon">⏱️</span>
+        <h4>V60 (Hario) — La méthode de référence</h4>
+        <p><strong>Principe :</strong> Filtration par gravité dans un cône avec spirales. L'extraction est contrôlée par le débit du versement.</p>
+        <br>
+        <p><strong>Profil :</strong> Café très propre, transparent, toutes les nuances aromatiques ressortent. Idéal pour les Éthiopiens et Kenyans washed.</p>
+        <br>
+        <p><strong>Paramètres de base :</strong> 15g café / 250ml eau à 92-94°C. Pré-infusion (bloom) 30-45s avec 40ml eau. Versement total en 2min30-3min. Mouture medium-fine.</p>
+        <br>
+        <p><strong>Sur votre menu :</strong> "V60 · Éthiopie Yirgacheffe · 4,50€ · Notes : jasmin, bergamote, thé vert"</p>
+      </div>
+      <div class="card card-teal">
+        <span class="card-icon">🔬</span>
+        <h4>AeroPress — La méthode créative</h4>
+        <p><strong>Principe :</strong> Pression manuelle d'un piston sur le café infusé, forçant l'eau à travers un filtre papier ou métal.</p>
+        <br>
+        <p><strong>Profil :</strong> Corps plus présent, café concentré mais clean. Polyvalent — peut reproduire un "proto-espresso" ou un café filtre selon le ratio et le temps.</p>
+        <br>
+        <p><strong>Paramètres :</strong> 15g / 200ml. Méthode inversée (inverted) populaire. Eau 88-96°C selon le café. 1-2 minutes d'infusion.</p>
+        <br>
+        <p><strong>Sur votre menu :</strong> Excellent pour une option "option créative du barista" ou pour le café emporté.</p>
+      </div>
+      <div class="card card-green">
+        <span class="card-icon">🧊</span>
+        <h4>Cold Brew — Le produit à emporter</h4>
+        <p><strong>Principe :</strong> Infusion à froid (4°C) pendant 12 à 24 heures. Aucune chaleur. Extraction par temps, non par température.</p>
+        <br>
+        <p><strong>Profil :</strong> Doux, peu acide, naturellement sucré, corps fort. Les notes de fruits et caramel ressortent particulièrement bien. Très apprécié l'été.</p>
+        <br>
+        <p><strong>Paramètres :</strong> 80g café grosse mouture / 1L eau froide. 16-24h au frigo. Filtrer. Diluer 1:1 ou servir concentré sur glace.</p>
+        <br>
+        <p><strong>Business model :</strong> Préparez en grande quantité, vendez en bouteille à emporter (300ml, 4-6€). Marge excellente.</p>
+      </div>
+      <div class="card card-floral">
+        <span class="card-icon">🍶</span>
+        <h4>Chemex — Le beau objet</h4>
+        <p><strong>Principe :</strong> Carafe en verre borosilicate avec col en bois. Filtres épais (papier spécial Chemex) qui retiennent plus d'huile = café très propre et léger.</p>
+        <br>
+        <p><strong>Profil :</strong> Encore plus propre que la V60. Acidité lumineuse, légèreté maximale. Pour les amateurs de thé qui découvrent le café.</p>
+        <br>
+        <p><strong>Avantage :</strong> La Chemex est un objet iconique, magnifique en salle. Elle génère des questions, de la conversation, des photos. <strong>Outil marketing à elle seule.</strong></p>
+        <br>
+        <p><strong>Format :</strong> Préparez en 500ml-1L pour la table (offre pour 2 personnes).</p>
+      </div>
+    </div>
+    <h3 class="sh">Paramètres universels : la règle d'or du filtre</h3>
+    <div class="big-numbers">
+      <div class="bn-item"><span class="bn-val">1:15</span><span class="bn-label">Ratio café:eau (fort)</span></div>
+      <div class="bn-item"><span class="bn-val">1:17</span><span class="bn-label">Ratio standard</span></div>
+      <div class="bn-item"><span class="bn-val">92–94°C</span><span class="bn-label">Température eau filtre</span></div>
+      <div class="bn-item"><span class="bn-val">2:30–4:00</span><span class="bn-label">Temps extraction min:sec</span></div>
+      <div class="bn-item"><span class="bn-val">18–22%</span><span class="bn-label">TDS extraction cible</span></div>
+    </div>
+    <div class="callout callout-key">
+      <span class="callout-label">🔑 La règle d'or</span>
+      <h4>Pesez toujours. Chronométrez toujours.</h4>
+      <p>Un barista specialty ne dose jamais "à l'œil". Une balance de précision (0,1g) sur le comptoir EST votre meilleur outil. Elle vous permet de reproduire une extraction parfaite, d'identifier les problèmes et de former rapidement un nouveau collaborateur. C'est aussi un signal visuel fort pour le client : "ces gens sont sérieux."</p>
+    </div>
+    <h3 class="sh">L'espresso specialty : adapter la recette à chaque café</h3>
+    <p class="body">Un Brésilien commercial fonctionne avec une recette standard. Un specialty coffee demande d'adapter la recette au café. C'est la différence fondamentale entre un barista commercial et un barista specialty.</p>
+    <table class="tbl">
+      <thead>
+        <tr><th>Profil du café</th><th>Dose</th><th>Ratio (in:out)</th><th>Temps</th><th>Température</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Naturel fruité (Éthiopie Natural)</td><td>18g</td><td>1:2.2 (40ml out)</td><td>28–32s</td><td>91–92°C</td></tr>
+        <tr><td>Washed acide (Kenya / Éthiopie washed)</td><td>18g</td><td>1:2.5 (45ml out)</td><td>28–32s</td><td>90–91°C</td></tr>
+        <tr><td>Équilibré (Colombie, Guatemala)</td><td>18g</td><td>1:2.0–2.2</td><td>25–30s</td><td>92–93°C</td></tr>
+        <tr><td>Chocolaté/corps (Brésil, Sumatra)</td><td>18g</td><td>1:2.0 (36ml out)</td><td>24–28s</td><td>93–94°C</td></tr>
+        <tr><td>Torréfaction légère (Light Roast)</td><td>18–20g</td><td>1:2.5–2.8</td><td>35–45s</td><td>88–91°C</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<!-- ═══════════════════════════ CHAPITRE 8 ═══════════════════════════ -->
+<section id="ch8" class="chapter-alt">
+  <div class="chapter">
+    <div class="ch-header">
+      <div class="ch-num">08</div>
+      <div class="ch-meta">
+        <span class="ch-kicker">Business & Expérience Client</span>
+        <h2 class="ch-title">Menu, Prix &amp; Vente :<br><em>Convertir et Fidéliser</em></h2>
+        <p class="ch-subtitle">Comment structurer votre offre, justifier vos prix, et transformer chaque client en ambassadeur.</p>
+      </div>
+    </div>
+    <h3 class="sh">Construire votre menu specialty : la structure idéale</h3>
+    <div class="callout callout-key">
+      <span class="callout-label">📋 Principe directeur</span>
+      <h4>Moins c'est plus — mais chaque item doit être parfait</h4>
+      <p>Un menu de specialty coffee n'a pas besoin de 20 boissons. 8-10 boissons parfaitement maîtrisées valent bien mieux. Chaque item doit pouvoir être préparé en moins de 3 minutes, même pendant un rush. Si vous ne maîtrisez pas une boisson parfaitement, retirez-la jusqu'à ce que vous la maîtrisiez.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card card-accent">
+        <span class="card-icon">☕</span>
+        <h4>Colonne "Espresso" (base)</h4>
+        <ul>
+          <li><strong>Espresso</strong> — votre café du moment (origin, score affiché)</li>
+          <li><strong>Long Black / Americano</strong> — pour les amateurs de café allongé</li>
+          <li><strong>Flat White</strong> — doppio ristretto + lait soyeux (tendance forte)</li>
+          <li><strong>Cappuccino</strong> — le classique. Parfait ou pas.</li>
+          <li><strong>Latte</strong> — grande tasse, base lait, avec option arôme</li>
+          <li><strong>Macchiato</strong> — pour les puristes pressés</li>
+        </ul>
+      </div>
+      <div class="card card-green">
+        <span class="card-icon">🫙</span>
+        <h4>Colonne "Specialty" (différenciation)</h4>
+        <ul>
+          <li><strong>V60 ou AeroPress du jour</strong> — origin tracée, notes de dégustation</li>
+          <li><strong>Cold Brew</strong> (bouteille ou verre, été surtout)</li>
+          <li><strong>Café d'exception du mois</strong> — lot limité, tarif premium, histoire</li>
+          <li><strong>Option lait végétal</strong> (avoine barista, amande, soja) +0,50€</li>
+        </ul>
+      </div>
+    </div>
+    <h3 class="sh">Justifier vos prix : la psychologie du premium</h3>
+    <p class="body">Un espresso à 1,80€ vs votre espresso specialty à 2,80€ — ça ne se justifie pas avec "c'est mieux". Ça se justifie avec une <strong>expérience perçue différente à chaque touchpoint</strong>.</p>
+    <div class="pricing-row" style="border-bottom:1px solid var(--sand);padding:0.7rem 0"><div class="pricing-label" style="font-weight:600;color:var(--text)">Boisson</div><div class="pricing-cost" style="font-weight:600;color:var(--text)">Coût matière</div><div class="pricing-sell" style="font-weight:600;color:var(--text)">Prix vente</div><div class="pricing-margin" style="background:transparent;color:var(--muted);font-weight:600">Marge brute</div></div>
+    <div class="pricing-row"><div class="pricing-label">Espresso (7g)</div><div class="pricing-cost">~0.15–0.22€</div><div class="pricing-sell">2.50–3.00€</div><div class="pricing-margin">~93%</div></div>
+    <div class="pricing-row"><div class="pricing-label">Flat White (18g + lait)</div><div class="pricing-cost">~0.45–0.65€</div><div class="pricing-sell">3.50–4.50€</div><div class="pricing-margin">~87%</div></div>
+    <div class="pricing-row"><div class="pricing-label">Cappuccino</div><div class="pricing-cost">~0.40–0.60€</div><div class="pricing-sell">3.00–4.00€</div><div class="pricing-margin">~87%</div></div>
+    <div class="pricing-row"><div class="pricing-label">V60 Single Origin</div><div class="pricing-cost">~0.50–1.00€</div><div class="pricing-sell">4.50–6.00€</div><div class="pricing-margin">~85%</div></div>
+    <div class="pricing-row"><div class="pricing-label">Cold Brew 300ml</div><div class="pricing-cost">~0.60–0.90€</div><div class="pricing-sell">4.00–5.50€</div><div class="pricing-margin">~84%</div></div>
+    <div class="pricing-row"><div class="pricing-label">Café d'exception (Gesha/lot limité)</div><div class="pricing-cost">~2.00–4.00€</div><div class="pricing-sell">8.00–15.00€</div><div class="pricing-margin">~75%</div></div>
+    <div class="callout callout-warn">
+      <span class="callout-label">⚠️ Ne sous-estimez pas votre café</span>
+      <h4>Le piège de se brader pour "ne pas faire peur"</h4>
+      <p>Un espresso specialty à 2,00€ envoie un mauvais signal : soit le client ne croit pas à la qualité, soit votre marge est insuffisante pour durer. <strong>Un client qui paye 3€ un espresso qu'il comprend et apprécie est meilleur pour votre business qu'un client qui paye 1,50€ et ne reviendra peut-être pas.</strong> Votre prix est aussi un signal de positionnement — assumez-le.</p>
+    </div>
+    <h3 class="sh">Les 10 scripts de vente pour un coffee shop specialty</h3>
+    <div class="grid-2">
+      <div class="convo">
+        <div style="margin-bottom:0.8rem;font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber)">SCRIPT 01 · Introduire le specialty</div>
+        <div class="convo-turn barista">
+          <span class="convo-speaker">VOUS</span>
+          <div class="convo-bubble">"Notre espresso du moment vient de Colombie, région de Huila — des notes de caramel et mandarine, score 86/100. Ou si vous êtes curieux, notre Éthiopie est beaucoup plus floral, comme un thé parfumé. Lequel vous tente ?"</div>
+        </div>
+      </div>
+      <div class="convo">
+        <div style="margin-bottom:0.8rem;font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber)">SCRIPT 02 · Client "habitué au sucre"</div>
+        <div class="convo-turn barista">
+          <span class="convo-speaker">VOUS</span>
+          <div class="convo-bubble">"Avant d'ajouter du sucre, essayez d'abord tel quel — ce café est naturellement doux grâce au traitement naturel. Si vous trouvez qu'il manque encore de douceur après, je vous mets du sucre de canne. Mais la plupart des gens sont surpris."</div>
+        </div>
+      </div>
+      <div class="convo">
+        <div style="margin-bottom:0.8rem;font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber)">SCRIPT 03 · Justifier le prix</div>
+        <div class="convo-turn barista">
+          <span class="convo-speaker">VOUS</span>
+          <div class="convo-bubble">"Ce café est acheté directement à un producteur en Éthiopie, payé 4 fois le prix mondial. Il a été trié à la main, torréfié la semaine dernière, moulu à l'instant. C'est 0,22€ de café dans votre tasse. Le reste, c'est le soin."</div>
+        </div>
+      </div>
+      <div class="convo">
+        <div style="margin-bottom:0.8rem;font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber)">SCRIPT 04 · Contre la concurrence</div>
+        <div class="convo-turn barista">
+          <span class="convo-speaker">VOUS</span>
+          <div class="convo-bubble">"Je sais que d'autres cafés dans le quartier servent du Brésilien. Nous aussi, on a un Brésil — mais celui-ci est noté 85 points par des experts internationaux, tracé jusqu'à la ferme. C'est le même pays, une autre expérience."</div>
+        </div>
+      </div>
+    </div>
+    <h3 class="sh">Vendre du café en grain : le revenu complémentaire oublié</h3>
+    <p class="body">Beaucoup de coffee shops ne vendent pas de café en grain — c'est une erreur. C'est votre meilleure opportunité de <strong>créer un revenu récurrent, fidéliser sans programme de fidélité, et étendre votre influence hors du café.</strong></p>
+    <div class="grid-3">
+      <div class="card">
+        <span class="card-icon">🛍️</span>
+        <h4>Vente au détail (en sac)</h4>
+        <p>250g ou 150g dans l'emballage de votre torréfacteur ou co-brandé. Marque de 25-40% sur le prix torréfacteur. Le client part avec votre café chez lui et revient quand il est fini.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">📦</span>
+        <h4>Abonnement café</h4>
+        <p>Un client abonné = revenu prévisible. 250g/semaine, livraison ou retrait en magasin. Même si c'est 20 abonnés à 12€/semaine = 240€ de chiffre d'affaires garanti chaque semaine.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🎁</span>
+        <h4>Coffrets cadeaux</h4>
+        <p>3 origines différentes + fiche de dégustation + guide de préparation. Noël, fêtes, anniversaires. Prix 25-45€. Excellent point d'entrée pour de nouveaux clients.</p>
+      </div>
+    </div>
+    <h3 class="sh">Checklist ultime pré-ouverture — Coffee Shop Specialty</h3>
+    <ul class="cl">
+      <li><strong>Torréfacteur(s) choisi(s) :</strong> 2 partenaires identifiés, cuppings réalisés, first orders passés</li>
+      <li><strong>Origines du menu :</strong> minimum 2 origines maîtrisées, recettes espresso calibrées (dose, ratio, temps)</li>
+      <li><strong>Méthode filtre :</strong> V60 ou AeroPress maîtrisée, paramètres écrits et testés</li>
+      <li><strong>Moulin :</strong> modèle on-demand à meules plates, calibré sur votre café, nettoyage testé</li>
+      <li><strong>Fiches produit café :</strong> pour chaque café : pays, région, ferme, variété, traitement, altitude, score SCA, notes de dégustation</li>
+      <li><strong>Cold Brew préparé :</strong> premier batch prêt pour le Jour J, bouteilles disponibles</li>
+      <li><strong>Protocole eau :</strong> filtre installé, dureté vérifiée (&lt;200 ppm)</li>
+      <li><strong>Balance de précision :</strong> sur le comptoir, visible du client, utilisée à chaque extraction</li>
+      <li><strong>Lait végétal :</strong> minimum oat milk "barista edition" disponible</li>
+      <li><strong>Formation scripts :</strong> votre équipe connaît l'histoire de chaque café et peut répondre à "d'où vient votre café ?"</li>
+      <li><strong>Pricing validé :</strong> marges calculées, prix affichés clairs, pas d'hésitation à assumer le tarif premium</li>
+      <li><strong>Programme cupping client :</strong> date du premier cupping public fixée dans les 2 semaines après l'ouverture</li>
+      <li><strong>Stock ouverture :</strong> 2-3 semaines de café, emballages hermétiques datés</li>
+      <li><strong>Storytelling :</strong> votre "why" est clair, votre histoire est racontable en 30 secondes</li>
+      <li><strong>Café en grain à vendre :</strong> stock disponible dès J1, prix affiché, packaging soigné</li>
+    </ul>
+  </div>
+</section>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-title">Vous êtes prêt.</div>
+  <p style="color:rgba(245,242,238,0.55);font-size:0.95rem;max-width:600px;margin:0 auto 1.5rem;font-style:italic">"Votre concurrent sert du café. Vous, vous servez une histoire, un terroir, une conviction. C'est ça qui crée une communauté et une business durable."</p>
+  <p>Dans 2 mois, chaque tasse que vous servirez sera le résultat de tout ce que vous avez appris.<br>Des milliers de personnes ont travaillé pour que ce grain soit là. Vous êtes le dernier maillon — et le plus visible.</p>
+  <div class="footer-tags" style="margin-top:2rem">
+    <span class="footer-tag">Ch.01 · Specialty Coffee</span>
+    <span class="footer-tag">Ch.02 · Positionnement</span>
+    <span class="footer-tag">Ch.03 · Origines & Terroir</span>
+    <span class="footer-tag">Ch.04 · Traitements</span>
+    <span class="footer-tag">Ch.05 · Sourcing</span>
+    <span class="footer-tag">Ch.06 · Cupping</span>
+    <span class="footer-tag">Ch.07 · Brew Methods</span>
+    <span class="footer-tag">Ch.08 · Menu & Vente</span>
+  </div>
+  <p style="margin-top:2.5rem;color:rgba(245,242,238,0.2);font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.12em">Cours basé sur Academia do Café® 2026 · Approfondi pour ouverture d'un coffee shop specialty</p>
+</footer>
+</body>
+</html>
