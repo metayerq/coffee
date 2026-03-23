@@ -290,6 +290,27 @@ h3.sh-dark { color: var(--mist); }
   .vs-banner { grid-template-columns: 1fr; }
   .vs-divider { display: none; }
   .chapter { padding: 4rem 1.5rem; }
+  /* Tables: horizontal scroll */
+  .chapter { overflow-x: auto; }
+  .callout { overflow-x: auto; }
+  .tbl { font-size: 0.75rem; min-width: 500px; }
+  .tbl th { padding: 0.6rem 0.8rem; font-size: 0.58rem; }
+  .tbl td { padding: 0.6rem 0.8rem; }
+  /* Sensory grid: 2 cols on mobile */
+  .sensory-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Wheel grid: 2 cols on mobile */
+  .wheel-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Process steps: ensure scroll works */
+  .process { gap: 0; }
+  .process-step { min-width: 200px; }
+  /* Origin specs: stack on very small */
+  .origin-specs { grid-template-columns: repeat(3, 1fr); gap: 0.4rem; }
+  /* Pricing row: stack */
+  .pricing-row { grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.8rem; }
+  /* Chapter header: stack */
+  .ch-header { grid-template-columns: 1fr; gap: 1rem; }
+  /* Prevent body overflow */
+  body { overflow-x: hidden; }
 }
 .card {
   background: white;
